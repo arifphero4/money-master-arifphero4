@@ -17,10 +17,91 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <container>
-      <header><h1>Budget Planner</h1></header>
-      <main></main>
-    </container>
+    <header><h1>Budget Planner</h1></header>
+    <main>
+      <section class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <img class="img-fluid" src="./images/image-2.jpg" alt="" />
+          </div>
+          <div class="col-md-6 col-sm-12 background">
+            <div>
+              <!----------------------- income section  ----------------->
+              <div>
+                <h3 class="mt-4">Income</h3>
+                <form>
+                  <label for="income-input">Income: </label>
+                  <input
+                    id="income-input"
+                    type="text"
+                    placeholder="  enter your income"
+                  />
+                </form>
+              </div>
+              <!----------------------- expenses section  ----------------->
+              <div>
+                <h3 class="my-4">Expenses</h3>
+                <form>
+                  <label for="income-input">Food: </label>
+                  <input
+                    id="food-input"
+                    type="text"
+                    placeholder="  food expenses"
+                  />
+                  <br />
+                  <br />
+                  <label for="income-input">Rent: </label>
+                  <input
+                    id="rent-input"
+                    type="text"
+                    placeholder="  rent expenses"
+                  />
+                  <br />
+                  <br />
+                  <label for="income-input">Others: </label>
+                  <input
+                    id="others-input"
+                    type="text"
+                    placeholder="  others expenses"
+                  />
+                </form>
+              </div>
+
+              <!------------- calculation section  ------------>
+              <button
+                id="calculate-btn"
+                type="button"
+                class="btn btn-primary my-4 fw-bold px-5"
+              >
+                Calculate
+              </button>
+
+              <h3>Total Expenses: <span id="total-expenses">00</span></h3>
+              <h4>Balance: <span id="balance">00</span></h4>
+            </div>
+            <!------------ savings section  ------->
+            <div class="my-3">
+              <label for="save-input"> Save:</label>
+              <input id="save-input" type="text" />
+              <span class="mx-3"> %</span>
+
+              <button
+                id="save-btn"
+                type="button"
+                class="btn btn-primary mb-2 fw-bold px-4 py-1 m"
+              >
+                Save
+              </button>
+              <h3 class="my-2">
+                Saving Amount: <span id="save-amount">00</span>
+              </h3>
+              <h3>Remaining Balance: <span id="rest-balance">00</span></h3>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- js script link  -->
     <script src="./js/app.js"></script>
