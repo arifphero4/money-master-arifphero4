@@ -10,8 +10,11 @@ const saveButton = document.getElementById("save-btn");
 const saveAmount = document.getElementById("save-amount");
 const finalBalance = document.getElementById("rest-balance");
 
+let totalIncome;
+let updateBalance;
+
 calcButton.addEventListener("click", function getData() {
-  const totalIncome = parseFloat(incomeInput.value);
+  totalIncome = parseFloat(incomeInput.value);
   const foodCost = parseFloat(foodInput.value);
   const rentCost = parseFloat(rentInput.value);
   const othersCost = parseFloat(othersInput.value);
@@ -20,7 +23,7 @@ calcButton.addEventListener("click", function getData() {
   const totalCost = foodCost + rentCost + othersCost;
   totalExpenses.innerText = totalCost;
   //   update balance
-  const updateBalance = totalIncome - totalCost;
+  updateBalance = totalIncome - totalCost;
   balanceField.innerText = updateBalance;
 
   //   clear input field
@@ -31,17 +34,16 @@ calcButton.addEventListener("click", function getData() {
 });
 
 saveButton.addEventListener("click", function () {
-  const totalIncome = parseFloat(incomeInput.value);
   const saveParcent = parseFloat(saveInput.value);
-  console.log(saveParcent);
   const savingMoney = (totalIncome * saveParcent) / 100;
   saveAmount.innerText = savingMoney;
-
-  // clear input field
-  incomeInput.value = "";
-  saveInput.value = "";
+  console.log(totalIncome);
 
   //update remaining balance
   const remainingBalance = updateBalance - savingMoney;
+  console.log(remainingBalance);
   finalBalance.innerText = remainingBalance;
+  // clear input field
+  incomeInput.value = "";
+  saveInput.value = "";
 });
