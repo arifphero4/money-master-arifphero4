@@ -46,7 +46,7 @@ document.getElementById("save-btn").addEventListener("click", () => {
 
   // error handling
   if (balance < saveBalance) {
-    savingErrorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> Insufficient Saving Balance `;
+    savingErrorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> insufficient saving balance `;
   } else {
     document.getElementById("save-amount").innerText = saveBalance;
     document.getElementById("rest-balance").innerText = remaining;
