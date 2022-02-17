@@ -12,7 +12,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-
+    <!-- Font Awesome CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <!-- custom CSS -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
@@ -21,7 +25,7 @@
       <h1 class="text-primary">Monthly Budget Planner</h1>
       <p>calculate your monthly budget with us</p>
     </header>
-    <main>
+    <main class="my-3">
       <section class="container-fluid">
         <div class="row">
           <div class="col-md-6 col-sm-12">
@@ -36,7 +40,7 @@
                   <label for="income-input">Income: </label>
                   <input
                     id="income-input"
-                    type="text"
+                    type="number"
                     placeholder="  enter your income"
                   />
                 </form>
@@ -48,7 +52,7 @@
                   <label for="income-input">Food: </label>
                   <input
                     id="food-input"
-                    type="text"
+                    type="number"
                     placeholder="  food expenses"
                   />
                   <br />
@@ -56,7 +60,7 @@
                   <label for="rent-input">Rent: </label>
                   <input
                     id="rent-input"
-                    type="text"
+                    type="number"
                     placeholder="  rent expenses"
                   />
                   <br />
@@ -64,7 +68,7 @@
                   <label for="others-input">Others: </label>
                   <input
                     id="others-input"
-                    type="text"
+                    type="number"
                     placeholder="  others expenses"
                   />
                 </form>
@@ -80,13 +84,7 @@
               </button>
               <!-- error messages -->
               <div>
-                <p id="notify-fail" class="text-danger" style="display: none">
-                  ❌ please give positive number as input value!
-                </p>
-                <p id="notify-success" class="">✅ calculation successful!</p>
-                <p id="invalid-number" class="text-danger">
-                  "expenses cannot be more than income"
-                </p>
+                <span id="errorShow" class="d-block text-danger py-4"></span>
               </div>
 
               <h3>Total Expenses: <span id="total-expenses">00</span></h3>
@@ -95,7 +93,7 @@
             <!------------ savings section  ------->
             <div class="my-3">
               <label for="save-input"> Save:</label>
-              <input id="save-input" type="text" />
+              <input id="save-input" type="number" />
               <span class="mx-3"> %</span>
 
               <button
@@ -105,9 +103,6 @@
               >
                 Save
               </button>
-              <p id="save-error" class="text-danger">
-                ❌ please give positive number as input value!
-              </p>
               <h3 class="my-2">
                 Saving Amount: <span id="save-amount">00</span>
               </h3>
@@ -123,10 +118,3 @@
     <script src="./js/app.js"></script>
   </body>
 </html>
-
-<!--
-     git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Porgramming-Hero-web-course/money-master-arifphero4.git
-git push -u origin main 
--->

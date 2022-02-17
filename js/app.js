@@ -1,65 +1,54 @@
-const incomeInput = document.getElementById("income-input").value;
-const foodInput = document.getElementById("food-input").value;
-const rentInput = document.getElementById("rent-input").value;
-const othersInput = document.getElementById("others-input").value;
-const calcButton = document.getElementById("calculate-btn");
-const totalExpenses = document.getElementById("total-expenses").value;
-const balanceField = document.getElementById("balance-field").value;
-const saveInput = document.getElementById("save-input").value;
-const saveButton = document.getElementById("save-btn");
-const saveAmount = document.getElementById("save-amount").value;
-const finalBalance = document.getElementById("rest-balance").value;
-
-// error messages input
-const numberError = document.getElementById("notify-fail");
-
-let totalIncome;
-let updateBalance;
-let totalCost;
-
-calcButton.addEventListener("click", function () {
-  if (
-    typeof incomeInput !== "number" &&
-    typeof foodInput !== "number" &&
-    typeof rentInput !== "number" &&
-    typeof othersInput !== "number"
-  ) {
-    numberError.style.display = "block ";
-    console.log(numberError);
+const income = document.getElementById("income-input");
+const food = document.getElementById("food-input");
+const rent = document.getElementById("rent-input");
+const clothes = document.getElementById("others-input");
+// Save Input
+const saveValue = document.getElementById("save-input");
+// Show text=======
+const totalExpenses = document.getElementById("total-expenses");
+const totalBalance = document.getElementById("balance-field");
+const errorShow = document.getElementById("errorShow");
+let myIncome;
+let balance;
+document.getElementById("calculate-btn").addEventListener("click", () => {
+  incomeField = parseFloat(income.value);
+  foodField = food.value;
+  rentField = rent.value;
+  clothesField = clothes.value;
+  const totalBuy =
+    parseFloat(foodField) + parseFloat(rentField) + parseFloat(clothesField);
+  if (!incomeField || !foodField || !rentField || !clothesField) {
+    errorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> all field must be fill-up`;
   } else {
-    console.log("number pawa gese");
+    if (incomeField < 0 || foodField < 0 || rentField < 0 || clothesField < 0) {
+      errorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> Please give a positive number`;
+      clearValue();
+    } else {
+      if (incomeField < totalBuy) {
+        errorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> expenses cannot be more than income value`;
+        clearValue();
+      } else {
+        myIncome = incomeField;
+        totalExpenses.innerText = totalBuy;
+        balance = incomeField - totalBuy;
+        totalBalance.innerText = balance;
+        errorShow.innerText = "";
+        clearValue();
+      }
+    }
   }
-
-  /*  totalIncome = Number(incomeInput);
-  const foodCost = Number(foodInput);
-  const rentCost = Number(rentInput);
-  const othersCost = Number(othersInput);
-
-  // update total expenses
-  totalCost = foodCost + rentCost + othersCost;
-  totalExpenses.innerText = totalCost;
-  //   update balance
-  updateBalance = totalIncome - totalCost;
-  balanceField.innerText = updateBalance;
-
-  //   clear input field
-  incomeInput.value = "";
-  foodInput.value = "";
-  rentInput.value = "";
-  othersInput.value = ""; */
 });
-
-saveButton.addEventListener("click", function () {
-  /* const saveParcent = Number(saveInput);
-  const savingMoney = (totalIncome * saveParcent) / 100;
-  saveAmount.innerText = savingMoney;
-  // console.log(totalIncome);
-
-  //update remaining balance
-  const remainingBalance = updateBalance - savingMoney;
-  console.log(remainingBalance);
-  finalBalance.innerText = remainingBalance;
-  // clear input field
-  incomeInput.value = "";
-  saveInput.value = ""; */
+document.getElementById("save-btn").addEventListener("click", () => {
+  const saveValueField = saveValue.value;
+  console.log(myIncome);
+  const saveBalance = (myIncome * parseFloat(saveValueField)) / 100;
+  const remaining = balance - saveBalance;
+  document.getElementById("save-amount").innerText = saveBalance;
+  document.getElementById("rest-balance").innerText = remaining;
 });
+function clearValue() {
+  income.value = "";
+  food.value = "";
+  rent.value = "";
+  clothes.value = "";
+}
