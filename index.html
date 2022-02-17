@@ -25,7 +25,7 @@
       <section class="container-fluid">
         <div class="row">
           <div class="col-md-6 col-sm-12">
-            <img class="img-fluid" src="./images/image-2.jpg" alt="" />
+            <img class="img-fluid img" src="./images/image-2.jpg" alt="" />
           </div>
           <div class="col-md-6 col-sm-12 background">
             <div>
@@ -80,13 +80,11 @@
               </button>
               <!-- error messages -->
               <div>
-                <p id="notify-fail" class="text-danger d-none">
+                <p id="notify-fail" class="text-danger" style="display: none">
                   ❌ please give positive number as input value!
                 </p>
-                <p id="notify-success" class="d-none">
-                  ✅ calculation successful!
-                </p>
-                <p id="invalid-number" class="text-danger d-none">
+                <p id="notify-success" class="">✅ calculation successful!</p>
+                <p id="invalid-number" class="text-danger">
                   "expenses cannot be more than income"
                 </p>
               </div>
@@ -107,6 +105,9 @@
               >
                 Save
               </button>
+              <p id="save-error" class="text-danger">
+                ❌ please give positive number as input value!
+              </p>
               <h3 class="my-2">
                 Saving Amount: <span id="save-amount">00</span>
               </h3>
