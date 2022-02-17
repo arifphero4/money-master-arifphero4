@@ -21,11 +21,11 @@ document.getElementById("calculate-btn").addEventListener("click", () => {
     errorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> all field must be fill-up`;
   } else {
     if (incomeField < 0 || foodField < 0 || rentField < 0 || clothesField < 0) {
-      errorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> Please give a positive number`;
+      errorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> please give a positive number`;
       clearValue();
     } else {
       if (incomeField < totalBuy) {
-        errorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> expenses cannot be more than income value`;
+        errorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> expenses cannot be more than income amount`;
         clearValue();
       } else {
         myIncome = incomeField;
