@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <header><h1 class="text-primary">Budget Planner</h1></header>
+    <header>
+      <h1 class="text-primary">Monthly Budget Planner</h1>
+      <p>calculate your monthly budget with us</p>
+    </header>
     <main>
       <section class="container-fluid">
         <div class="row">
@@ -75,6 +78,18 @@
               >
                 Calculate
               </button>
+              <!-- error messages -->
+              <div>
+                <p id="notify-fail" class="text-danger d-none">
+                  ❌ please give positive number as input value!
+                </p>
+                <p id="notify-success" class="d-none">
+                  ✅ calculation successful!
+                </p>
+                <p id="invalid-number" class="text-danger d-none">
+                  "expenses cannot be more than income"
+                </p>
+              </div>
 
               <h3>Total Expenses: <span id="total-expenses">00</span></h3>
               <h4>Balance: <span id="balance-field">00</span></h4>
