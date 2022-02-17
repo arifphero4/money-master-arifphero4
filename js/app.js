@@ -36,11 +36,12 @@ saveButton.addEventListener("click", function () {
   console.log(saveParcent);
   const savingMoney = (totalIncome * saveParcent) / 100;
   saveAmount.innerText = savingMoney;
-  //update remaining balance
-
-  const remainingBalance = updateBalance - savingMoney;
-  finalBalance.innerText = remainingBalance;
 
   // clear input field
+  incomeInput.value = "";
   saveInput.value = "";
+
+  //update remaining balance
+  const remainingBalance = updateBalance - savingMoney;
+  finalBalance.innerText = remainingBalance;
 });
