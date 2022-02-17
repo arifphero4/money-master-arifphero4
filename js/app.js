@@ -43,8 +43,14 @@ document.getElementById("save-btn").addEventListener("click", () => {
   console.log(myIncome);
   const saveBalance = (myIncome * parseFloat(saveValueField)) / 100;
   const remaining = balance - saveBalance;
-  document.getElementById("save-amount").innerText = saveBalance;
-  document.getElementById("rest-balance").innerText = remaining;
+
+  // error handling
+  if (balance < saveBalance) {
+    savingErrorShow.innerHTML = `<i class="fa-solid fa-xmark"></i> Insufficient Saving Balance `;
+  } else {
+    document.getElementById("save-amount").innerText = saveBalance;
+    document.getElementById("rest-balance").innerText = remaining;
+  }
 });
 function clearValue() {
   income.value = "";
